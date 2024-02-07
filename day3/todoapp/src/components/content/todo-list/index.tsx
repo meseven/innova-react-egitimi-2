@@ -1,8 +1,18 @@
 import Item from "./item";
-import { useTodos } from "../../../context/TodoContext";
+import useTodoStore from "../../../store/TodoStore";
+import { useMemo } from "react";
 
 const TodoList = () => {
-  const { filtered_todos } = useTodos();
+  const todos = useTodoStore((state) => state.todos);
+  const filter = useTodoStore((state) => state.filter);
+
+  const filtered_todos = useMemo(() => {
+    return filter === "all"
+      ? todos
+      : todos.filter(
+          (todo) => todo.is_completed === (filter === "active" ? false : true)
+        );
+  }, [filter, todos]);
 
   return (
     <ul className="todo-list">
