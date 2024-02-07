@@ -1,10 +1,10 @@
-import { useTodos } from "../../context/TodoContext";
 import { Formik, Field, Form } from "formik";
 import { todoSchema } from "./validations";
 import classNames from "classnames";
+import useTodoStore from "../../store/TodoStore";
 
 const Header = () => {
-  const { addTodo } = useTodos();
+  const addTodo = useTodoStore((state) => state.addTodo);
 
   return (
     <header className="header">

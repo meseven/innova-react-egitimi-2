@@ -1,8 +1,13 @@
 import classNames from "classnames";
-import { useTodos } from "../../context/TodoContext";
+import useTodoStore from "../../store/TodoStore";
 
 const Menu = () => {
-  const { todos_left, clearCompleted, filter, setFilter } = useTodos();
+  const todos = useTodoStore((state) => state.todos);
+  const filter = useTodoStore((state) => state.filter);
+  const setFilter = useTodoStore((state) => state.setFilter);
+  const clearCompleted = useTodoStore((state) => state.clearCompleted);
+
+  const todos_left = todos.filter((todo) => !todo.is_completed).length;
 
   return (
     <div className="footer">

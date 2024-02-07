@@ -1,12 +1,13 @@
 import classNames from "classnames";
-import { TodoType, useTodos } from "../../../context/TodoContext";
+import useTodoStore, { TodoType } from "../../../store/TodoStore";
 
 type IProps = {
   todo: TodoType;
 };
 
 const Item = ({ todo }: IProps) => {
-  const { toggleTodo, deleteTodo } = useTodos();
+  const toggleTodo = useTodoStore((state) => state.toggleTodo);
+  const deleteTodo = useTodoStore((state) => state.deleteTodo);
 
   return (
     <li
