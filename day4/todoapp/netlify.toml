@@ -8,5 +8,8 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
+  [plugins.inputs]
+    spa = "index.html"
   [plugins.inputs.postBuild]
       enable = true
+      
