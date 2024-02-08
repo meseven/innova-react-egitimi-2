@@ -8,8 +8,9 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
-  [plugins.inputs]
-    spa = "index.html"
-  [plugins.inputs.postBuild]
-      enable = true
+  [plugins.inputs.preBuild]
+    enable = true
+    start = 'npm run dev'
+    wait-on = 'http://localhost:3000'
+    wait-on-timeout = '30'
       

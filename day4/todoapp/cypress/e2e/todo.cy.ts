@@ -1,10 +1,6 @@
 describe("TodoApp Testleri", () => {
   beforeEach(() => {
-    cy.visit(
-      process.env.NODE_ENV
-        ? "http://localhost:5173"
-        : "https://innova-todoapp.netlify.app/"
-    );
+    cy.visit("http://localhost:3000");
   });
 
   it("Varsayılan olarak üç eleman listelenmeli", () => {
