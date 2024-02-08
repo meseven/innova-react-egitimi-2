@@ -11,7 +11,7 @@ const Item = ({ item }) => {
         className={classNames(
           "bg-zinc-700 px-2 py-1 inline-flex rounded-md text-xl",
           {
-            "bg-blue-500": item.is_from_me,
+            "!bg-blue-500": item.is_from_me,
           }
         )}
       >

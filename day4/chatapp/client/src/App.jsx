@@ -5,8 +5,11 @@ import { socket } from "./socket";
 import { useEffect } from "react";
 import useChatStore from "./store/useChatStore";
 import Header from "./components/Header";
+import useSettingsStore from "./store/useSettingsStore";
+import classNames from "classnames";
 
 const App = () => {
+  const theme = useSettingsStore((state) => state.theme);
   const addMessage = useChatStore((state) => state.addMessage);
   const setOnlineCount = useChatStore((state) => state.setOnlineCount);
 
@@ -42,12 +45,22 @@ const App = () => {
     };
   }, []);
 
+  console.log(theme);
   return (
-    <div className="min-w-[540px] ">
-      <Header />
-      <div className="border-2 border-[#666]">
-        <List />
-        <Form />
+    <div
+      className={classNames(
+        "wrapper flex flex-1 justify-center items-center h-[100vh]",
+        {
+          dark: theme === "dark",
+        }
+      )}
+    >
+      <div className="min-w-[540px] ">
+        <Header />
+        <div className="border-2 border-[#666]">
+          <List />
+          <Form />
+        </div>
       </div>
     </div>
   );
