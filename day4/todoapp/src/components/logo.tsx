@@ -1,6 +1,6 @@
 const Logo = () => (
   <h1 className="logo" data-cy="logo">
-    todo
+    todos app
   </h1>
 );
 

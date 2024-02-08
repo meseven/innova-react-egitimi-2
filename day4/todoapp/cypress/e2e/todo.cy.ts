@@ -4,7 +4,7 @@ describe("TodoApp Testleri", () => {
   });
 
   it("Başlık doğru şekilde render edilmeli", () => {
-    cy.get("[data-cy=logo]").should("have.text", "todos");
+    cy.get("[data-cy=logo]").should("have.text", "todos app");
   });
 
   it("Varsayılan olarak üç eleman listelenmeli", () => {
