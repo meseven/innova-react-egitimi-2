@@ -1,3 +1,7 @@
-const Logo = () => <h1 className="logo">todos</h1>;
+const Logo = () => (
+  <h1 className="logo" data-cy="logo">
+    todo
+  </h1>
+);
 
 export default Logo;

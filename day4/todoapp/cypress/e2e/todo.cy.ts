@@ -3,6 +3,10 @@ describe("TodoApp Testleri", () => {
     cy.visit("http://localhost:3000");
   });
 
+  it("Başlık doğru şekilde render edilmeli", () => {
+    cy.get("[data-cy=logo]").should("have.text", "todos");
+  });
+
   it("Varsayılan olarak üç eleman listelenmeli", () => {
     cy.get(".todo-list li").should("have.length", 3);
 
